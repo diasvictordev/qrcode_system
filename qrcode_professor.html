@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/home.css">
+    <link rel="stylesheet" href="./css/header.css">
+    <title>Gerador QR Code</title>
+    <script type="text/javascript" src="qrcode.js"></script>
+</head>
+
+
+<body>
+            <h1>Olá, professor</h1>
+            <label>Digite a matéria:</label>
+            <input type="text" id="materia" value="" placeholder="Matéria"></input>
+            <label>Digite a quantidade de presenças:</label>
+            <input type="text" id="presenca" value="" placeholder="Presenças"></input>
+            <label>Digite o curso:</label>
+            <input type="text" id="curso" value="" placeholder="Curso"></input>
+            <button onclick="createQrCode()">Gerar</button>
+            <div id="qrcode"></div>
+</body>
+
+    <script>
+        function createQrCode(){
+            var userInput = document.getElementById('materia').value;
+            
+            var qrcode = new QRCode ("qrcode", {
+                text: userInput,
+                width: 256,
+                height: 256,
+                colorDark: "black",
+                colorLight: "white",
+                correctLevel: QRCode.CorrectLevel.H
+            });
+        }
+
+    </script>
+
+
+</html>
